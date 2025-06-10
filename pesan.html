@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="pesan.css " />
+  </head>
+  <body>
+    <nav>
+      <div class="firstname">
+        <h2>QuickShip</h2>
+      </div>
+      <ul class="teks-hover">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="pesan.html">Pesan Barang</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="font">
+      <header>
+        <div class="header-opacity">
+          <div class="text-button-wrapper">
+            <div class="intro-container">
+              <div class="intro-title">Apa yang kau butuhkan?</div>
+            
+              <div class="input-wrapper">
+                <span class="input-icon">❓</span>
+                <div class="intro-text with-icon" id="editableText" contenteditable="true">
+                  type
+                </div>
+              </div>
+            
+              <button class="intro-btn" onclick="kirim()">Kirim</button>
+            </div>
+            <script>
+              function kirim() {
+                const teks = document.getElementById('editableText').innerText.trim();
+                if (teks) {
+                  // Simpan ke localStorage
+                  const daftarPesan = JSON.parse(localStorage.getItem("pesanTersimpan") || "[]");
+                  daftarPesan.push(teks);
+                  localStorage.setItem("pesanTersimpan", JSON.stringify(daftarPesan));
+            
+                  // Arahkan ke halaman ucapan terima kasih
+                  window.location.href = "pengalih.html";
+                } else {
+                  alert("Silakan tulis sesuatu terlebih dahulu.");
+                }
+              }
+            </script>
+            
+          
+  </body>
+</html>
